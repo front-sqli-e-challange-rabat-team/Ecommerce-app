@@ -1,8 +1,8 @@
 # Ecommerce-app
-ecom app for sqli challange
+Ecom app for sqli challenge
 
 
-colabs:
-- anas jaidi
+collabs:
+- Anas Jaidi
 - Akchayat Yasser
 - Mohamed Malainine
