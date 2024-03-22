@@ -1,0 +1,17 @@
+{
+  "extends": ["//"],
+  "globalDependencies": ["**/.env.*local", "**/.env"],
+  "pipeline": {
+    "build": {
+      "dependsOn": ["lint"]
+    },
+    "lint": {},
+    "preview": {
+      "dependsOn": ["lint", "build"]
+    },
+    "dev": {
+      "cache": false,
+      "persistent": true
+    }
+  }
+}
