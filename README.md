@@ -6,4 +6,4 @@ collabs:
 - Anas Jaidi
 - Akchayat Yasser
 - Abderrahmane Belqasmi
-- Mohamed Malainine
+- Mohamed Malainine -
