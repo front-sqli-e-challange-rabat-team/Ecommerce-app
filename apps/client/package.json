@@ -13,7 +13,12 @@
     "@repo/tailwind-config": "workspace:^",
     "@repo/ui": "workspace:^",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "preinstall": "npx only-allow pnpm"
+  },
+  "packageManager": "pnpm@8.9.0",
+  "engines": {
+    "node": ">=18"
   },
   "devDependencies": {
     "@repo/typescript-config": "workspace:*",
