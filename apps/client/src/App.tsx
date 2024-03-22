@@ -1,12 +1,12 @@
-import {Button} from '@repo/ui/button'
-function App() {
+import { TitleUi } from '@repo/ui';
 
+function App() {
   return (
     <>
-     <div className='bg-red-300 text-center'>anas jaidi</div>
-     <Button appName='anas jaidi' className='bg-red-900'>Click me</Button>
+      <div className='bg-red-300 text-center'>anas jaidi</div>
+      <TitleUi />
     </>
-  )
+  );
 }
 
-export default App
+export default App;

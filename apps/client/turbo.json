@@ -5,7 +5,9 @@
     "build": {
       "dependsOn": ["lint"]
     },
-    "lint": {},
+    "lint": {
+      
+    },
     "preview": {
       "dependsOn": ["lint", "build"]
     },
