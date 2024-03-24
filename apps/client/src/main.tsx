@@ -1,11 +1,20 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import App from './App.tsx';
-import './index.css';
-import '@repo/tailwind-config/style.css';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import "@repo/tailwind-config/style.css";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { RouterProvider } from "react-router-dom";
+import routes from "./routes.tsx";
 
-ReactDOM.createRoot(document.getElementById('root')!).render(
+
+const queryClient = new QueryClient();
+
+ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <App />
+    <QueryClientProvider client={queryClient}>
+      <RouterProvider router={routes}/>
+      <ReactQueryDevtools />
+    </QueryClientProvider>
   </React.StrictMode>
 );
