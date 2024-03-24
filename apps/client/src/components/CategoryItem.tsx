@@ -305,6 +305,3 @@ const CategoryItemsCrud: React.FC = () => {
 
 export default CategoryItemsCrud;
 
-
-// pnpm
-// turbo dev
