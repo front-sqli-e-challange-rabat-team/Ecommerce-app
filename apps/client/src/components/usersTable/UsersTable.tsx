@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import ReusableInput from '../ReusableInput';
+import ReusableForm from './ReusableForm';
 import { usersSeed } from './userSeeds';
 
 interface User {
@@ -22,7 +22,7 @@ const UsersTable: React.FC = () => {
   const handleSaveEdit = () => {
     if (!editUser) return;
 
-    const updatedUsers = users.map((user) =>
+    const updatedUsers = users.map(user =>
       user.id === editUser.id ? editUser : user
     );
     setUsers(updatedUsers);
@@ -36,12 +36,12 @@ const UsersTable: React.FC = () => {
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
     if (editUser) {
-      setEditUser((prevUser) => ({
+      setEditUser(prevUser => ({
         ...prevUser,
         [name]: value,
       }));
     } else {
-      setNewUser((prevUser) => ({
+      setNewUser(prevUser => ({
         ...prevUser,
         [name]: value,
       }));
@@ -60,7 +60,7 @@ const UsersTable: React.FC = () => {
   };
 
   const handleDeleteUser = (id: number) => {
-    const updatedUsers = users.filter((user) => user.id !== id);
+    const updatedUsers = users.filter(user => user.id !== id);
     setUsers(updatedUsers);
   };
 
@@ -70,21 +70,11 @@ const UsersTable: React.FC = () => {
       <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
         <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
           <tr>
-            <th scope="col" className="px-6 py-3">
-              ID
-            </th>
-            <th scope="col" className="px-6 py-3">
-              Name
-            </th>
-            <th scope="col" className="px-6 py-3">
-              Email
-            </th>
-            <th scope="col" className="px-6 py-3">
-              Role
-            </th>
-            <th scope="col" className="px-6 py-3">
-              Actions
-            </th>
+            <th scope="col" className="px-6 py-3">ID</th>
+            <th scope="col" className="px-6 py-3">Name</th>
+            <th scope="col" className="px-6 py-3">Email</th>
+            <th scope="col" className="px-6 py-3">Role</th>
+            <th scope="col" className="px-6 py-3">Actions</th>
           </tr>
         </thead>
         <tbody>
@@ -102,91 +92,18 @@ const UsersTable: React.FC = () => {
           ))}
         </tbody>
       </table>
+
       {editUser && (
-        <div className="mt-4 p-4 border border-gray-300 bg-white dark:bg-gray-800">
-          <h3 className="text-lg font-semibold mb-2 text-gray-900 dark:text-white">Edit User</h3>
-          <ReusableInput
-            label="Name"
-            name="name"
-            value={editUser.name}
-            onChange={handleInputChange}
-          />
-          <ReusableInput
-            label="Email"
-            name="email"
-            value={editUser.email}
-            onChange={handleInputChange}
-          />
-          <ReusableInput
-            label="Role"
-            name="role"
-            value={editUser.role}
-            onChange={handleInputChange}
-          />
-          <div className="mt-4">
-            <button
-              className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mr-2"
-              onClick={handleSaveEdit}
-            >
-              Save
-            </button>
-            <button
-              className="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded"
-              onClick={handleCancelEdit}
-            >
-              Cancel
-            </button>
-          </div>
-        </div>
+        <ReusableForm title="Edit User" formData={editUser} handleInputChange={handleInputChange} handleSave={handleSaveEdit} handleCancel={handleCancelEdit} />
       )}
       {showAddUserForm && (
-        <div className="mt-4 p-4 border border-gray-300 bg-white dark:bg-gray-800">
-          <h3 className="text-lg font-semibold mb-2 text-gray-900 dark:text-white">Add User</h3>
-          <ReusableInput
-            label="Name"
-            name="name"
-            value={newUser.name}
-            onChange={handleInputChange}
-          />
-          <ReusableInput
-            label="Email"
-            name="email"
-            value={newUser.email}
-            onChange={handleInputChange}
-          />
-          <ReusableInput
-            label="Role"
-            name="role"
-            value={newUser.role}
-            onChange={handleInputChange}
-          />
-          <div className="mt-4">
-            <button
-              className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mr-2"
-              onClick={handleSaveNewUser}
-            >
-              Save
-            </button>
-            <button
-              className="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded"
-              onClick={() => setShowAddUserForm(false)}
-            >
-              Cancel
-            </button>
-          </div>
-        </div>
+        <ReusableForm title="Add User" formData={newUser} handleInputChange={handleInputChange} handleSave={handleSaveNewUser} handleCancel={() => setShowAddUserForm(false)} />
       )}
       <div className="mt-4">
-        <button
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-          onClick={handleAddUser}
-        >
-          Add User
-        </button>
+        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={handleAddUser} > Add User </button>
       </div>
     </div>
   );
 };
 
 export default UsersTable;
-

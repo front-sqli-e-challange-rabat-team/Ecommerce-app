@@ -33,7 +33,6 @@ const CategoryCrud: React.FC = () => {
 
   const handleSaveCategory = () => {
     if (categoryToEdit) {
-      // Logic to update category
       const updatedCategories = categories.map((category) => {
         if (category.id === categoryToEdit.id) {
           return {
@@ -48,11 +47,11 @@ const CategoryCrud: React.FC = () => {
       setShowEditCategoryForm(false);
       setCategoryToEdit(null);
     } else {
-      // Logic to add new category
-      const newCategoryWithId = { ...newCategory, id: categories.length + 1 }; // Assign unique ID
+      
+      const newCategoryWithId = { ...newCategory, id: categories.length + 1 };
       setCategories([...categories, newCategoryWithId]);
       setShowAddCategoryForm(false);
-      setNewCategory({ id: 0, name: '', description: '' }); // Reset form fields
+      setNewCategory({ id: 0, name: '', description: '' }); 
     }
   };
 
@@ -108,86 +107,35 @@ const CategoryCrud: React.FC = () => {
   {showAddCategoryForm && (
   <div className="relative overflow-x-auto shadow-md sm:rounded-lg mt-4 p-4 border border-gray-300 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100">
     <h3 className="text-lg font-semibold mb-2">Add Category</h3>
-    <label className="block mb-2">
-      Name:
-      <input
-        type="text"
-        name="name"
-        value={newCategory.name}
-        onChange={handleInputChange}
-        className="form-input mt-1 block w-full"
-      />
+    <label className="block mb-2"> Name:
+      <input type="text" name="name" value={newCategory.name} onChange={handleInputChange} className="form-input mt-1 block w-full" />
     </label>
-    <label className="block mb-2">
-      Description:
-      <textarea
-        name="description"
-        value={newCategory.description}
-        onChange={handleInputChange}
-        className="form-textarea mt-1 block w-full"
-      />
+    <label className="block mb-2"> Description:
+      <textarea name="description" value={newCategory.description} onChange={handleInputChange} className="form-textarea mt-1 block w-full" />
     </label>
     <div className="mt-4">
-      <button
-        className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mr-2"
-        onClick={handleSaveCategory}
-      >
-        Save
-      </button>
-      <button
-        className="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded"
-        onClick={() => setShowAddCategoryForm(false)}
-      >
-        Cancel
-      </button>
+      <button className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mr-2" onClick={handleSaveCategory} > Save </button>
+      <button className="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded" onClick={() => setShowAddCategoryForm(false)} > Cancel </button>
     </div>
   </div>
 )}
 {showEditCategoryForm && categoryToEdit && (
   <div className="relative overflow-x-auto shadow-md sm:rounded-lg mt-4 p-4 border border-gray-300 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100">
     <h3 className="text-lg font-semibold mb-2">Edit Category</h3>
-    <label className="block mb-2">
-      Name:
-      <input
-        type="text"
-        name="name"
-        value={categoryToEdit.name}
-        onChange={handleInputChange}
-        className="form-input mt-1 block w-full"
-      />
+    <label className="block mb-2"> Name:
+      <input type="text" name="name" value={categoryToEdit.name} onChange={handleInputChange} className="form-input mt-1 block w-full" />
     </label>
-    <label className="block mb-2">
-      Description:
-      <textarea
-        name="description"
-        value={categoryToEdit.description}
-        onChange={handleInputChange}
-        className="form-textarea mt-1 block w-full"
-      />
+    <label className="block mb-2"> Description:
+      <textarea name="description" value={categoryToEdit.description} onChange={handleInputChange} className="form-textarea mt-1 block w-full" />
     </label>
     <div className="mt-4">
-      <button
-        className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mr-2"
-        onClick={handleSaveCategory}
-      >
-        Save
-      </button>
-      <button
-        className="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded"
-        onClick={() => setShowEditCategoryForm(false)}
-      >
-        Cancel
-      </button>
+      <button className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mr-2" onClick={handleSaveCategory} > Save </button>
+      <button className="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded" onClick={() => setShowEditCategoryForm(false)} > Cancel </button>
     </div>
   </div>
 )}
 <div className="mt-4">
-  <button
-    className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-    onClick={handleAddCategory}
-  >
-    Add Category
-  </button>
+  <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={handleAddCategory} > Add Category </button>
 </div>
 </div>
 
@@ -195,6 +143,3 @@ const CategoryCrud: React.FC = () => {
 };
 
 export default CategoryCrud;
-
-// pnpm
-// turbo dev 

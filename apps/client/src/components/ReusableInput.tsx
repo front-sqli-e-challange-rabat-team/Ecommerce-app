@@ -11,7 +11,7 @@ interface InputProps {
 
 const ReusableInput: React.FC<InputProps> = ({ label, type = 'text', name, value, onChange }) => {
   return (
-    <label className="block mb-2">
+    <label className="block mb-2 text-white">
       {label}:
       <input
         type={type}

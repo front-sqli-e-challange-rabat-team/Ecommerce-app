@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import ReusableInput from '../ReusableInput';
-import OrdersTableSeed from './OrdersTableSeed';
+import ReusableForm from './ReusableForm';
+import { OrdersTableSeed } from './OrdersTableSeed';
 
 interface Order {
   id: number;
@@ -13,7 +13,13 @@ interface Order {
 const OrdersTable: React.FC = () => {
   const [orders, setOrders] = useState<Order[]>(OrdersTableSeed);
   const [editOrder, setEditOrder] = useState<Order | null>(null);
-  const [newOrder, setNewOrder] = useState<Order>({ id: 0, customerName: '', email: '', totalPrice: 0, status: '' });
+  const [newOrder, setNewOrder] = useState<Order>({
+    id: 0,
+    customerName: '',
+    email: '',
+    totalPrice: 0,
+    status: ''
+  });
   const [showAddOrderForm, setShowAddOrderForm] = useState(false);
 
   const handleEditOrder = (order: Order) => {
@@ -23,7 +29,7 @@ const OrdersTable: React.FC = () => {
   const handleSaveEdit = () => {
     if (!editOrder) return;
 
-    const updatedOrders = orders.map((order) =>
+    const updatedOrders = orders.map(order =>
       order.id === editOrder.id ? editOrder : order
     );
     setOrders(updatedOrders);
@@ -34,18 +40,19 @@ const OrdersTable: React.FC = () => {
     setEditOrder(null);
   };
 
-  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+  const handleInputChange = (
+    event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+  ) => {
+    const { name, value } = event.target;
     if (editOrder) {
-      const { name, value } = event.target;
-      setEditOrder((prevOrder) => ({
+      setEditOrder(prevOrder => ({
         ...prevOrder,
-        [name]: value,
+        [name]: value
       }));
     } else {
-      const { name, value } = event.target;
-      setNewOrder((prevOrder) => ({
+      setNewOrder(prevOrder => ({
         ...prevOrder,
-        [name]: value,
+        [name]: value
       }));
     }
   };
@@ -57,12 +64,18 @@ const OrdersTable: React.FC = () => {
   const handleSaveNewOrder = () => {
     const newOrderWithId = { ...newOrder, id: orders.length + 1 };
     setOrders([...orders, newOrderWithId]);
-    setNewOrder({ id: 0, customerName: '', email: '', totalPrice: 0, status: '' });
+    setNewOrder({
+      id: 0,
+      customerName: '',
+      email: '',
+      totalPrice: 0,
+      status: ''
+    });
     setShowAddOrderForm(false);
   };
 
   const handleDeleteOrder = (id: number) => {
-    const updatedOrders = orders.filter((order) => order.id !== id);
+    const updatedOrders = orders.filter(order => order.id !== id);
     setOrders(updatedOrders);
   };
 
@@ -78,9 +91,7 @@ const OrdersTable: React.FC = () => {
               <th className="px-6 py-3">Email</th>
               <th className="px-6 py-3">Total Price</th>
               <th className="px-6 py-3">Status</th>
-              <th className="px-6 py-3">
-                <span className="sr-only">Actions</span>
-              </th>
+              <th className="px-6 py-3"> <span className="sr-only">Actions</span> </th>
             </tr>
           </thead>
           <tbody>
@@ -101,87 +112,16 @@ const OrdersTable: React.FC = () => {
         </table>
       </div>
       {editOrder && (
-        <div className="mt-4 p-4 border border-gray-300 bg-white dark:bg-gray-800">
-          <h3 className="text-lg font-semibold mb-2 text-gray-900 dark:text-white">Edit Order</h3>
-          <ReusableInput label="Customer Name" name="customerName" value={editOrder.customerName} onChange={handleInputChange} />
-          <ReusableInput label="Email" name="email" value={editOrder.email} onChange={handleInputChange} />
-          <ReusableInput label="Total Price" type="number" name="totalPrice" value={editOrder.totalPrice} onChange={handleInputChange} />
-          <label className="block mb-2">
-            Status:
-            <select
-              name="status"
-              value={editOrder.status}
-              onChange={handleInputChange}
-              className="form-select mt-1 block w-full"
-            >
-              <option value="Pending">Pending</option>
-              <option value="Shipped">Shipped</option>
-              <option value="Delivered">Delivered</option>
-            </select>
-          </label>
-          <div className="mt-4">
-            <button
-              className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mr-2"
-              onClick={handleSaveEdit}
-            >
-              Save
-            </button>
-            <button
-              className="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded"
-              onClick={handleCancelEdit}
-            >
-              Cancel
-            </button>
-          </div>
-        </div>
+        <ReusableForm title="Edit Order" formData={editOrder} handleInputChange={handleInputChange} handleSave={handleSaveEdit} handleCancel={handleCancelEdit} />
       )}
       {showAddOrderForm && (
-        <div className="mt-4 p-4 border border-gray-300 bg-white dark:bg-gray-800">
-          <h3 className="text-lg font-semibold mb-2 text-gray-900 dark:text-white">Add Order</h3>
-          <ReusableInput label="Customer Name" name="customerName" value={newOrder.customerName} onChange={handleInputChange} />
-          <ReusableInput label="Email" name="email" value={newOrder.email} onChange={handleInputChange} />
-          <ReusableInput label="Total Price" type="number" name="totalPrice" value={newOrder.totalPrice} onChange={handleInputChange} />
-          <label className="block mb-2">
-            Status:
-            <select
-              name="status"
-              value={newOrder.status}
-              onChange={handleInputChange}
-              className="form-select mt-1 block w-full"
-            >
-              <option value="Pending">Pending</option>
-              <option value="Shipped">Shipped</option>
-              <option value="Delivered">Delivered</option>
-            </select>
-          </label>
-          <div className="mt-4">
-            <button
-              className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mr-2"
-              onClick={handleSaveNewOrder}
-            >
-              Save
-            </button>
-            <button
-              className="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded"
-              onClick={() => setShowAddOrderForm(false)}
-            >
-              Cancel
-            </button>
-          </div>
-        </div>
+        <ReusableForm title="Add Order" formData={newOrder} handleInputChange={handleInputChange} handleSave={handleSaveNewOrder} handleCancel={() => setShowAddOrderForm(false)} />
       )}
       <div className="mt-4">
-        <button
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-          onClick={handleAddOrder}
-        >
-          Add Order
-        </button>
+        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={handleAddOrder} > Add Order </button>
       </div>
     </div>
   );
 };
-
 export default OrdersTable;
 
-         

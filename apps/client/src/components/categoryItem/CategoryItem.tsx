@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import ReusableInput from '../ReusableInput';
 import { categoryItemsSeed } from './SeedData';
+import CategoryItemForm from './CategoryItemForm';
 
 interface CategoryItem {
   id: number;
@@ -8,7 +9,7 @@ interface CategoryItem {
   description: string;
   price: number;
   stock: number;
-  pictures: string[]; // Array to store picture URLs
+  pictures: string[]; 
 }
 
 const CategoryItemsCrud: React.FC = () => {
@@ -100,34 +101,19 @@ const CategoryItemsCrud: React.FC = () => {
     setCategoryItems(updatedItems);
   };
 
-
   return (
     <div className="category-items-crud">
       <h2 className="text-2xl font-semibold mb-4 uppercase text-gray-800">Category Items</h2>
       <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
         <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
           <tr>
-            <th className="px-6 py-3">
-              ID
-            </th>
-            <th className="px-6 py-3">
-              Name
-            </th>
-            <th className="px-6 py-3">
-              Description
-            </th>
-            <th className="px-6 py-3">
-              Price
-            </th>
-            <th className="px-6 py-3">
-              Stock
-            </th>
-            <th className="px-6 py-3">
-              Picture
-            </th>
-            <th className="px-6 py-3">
-              <span className="sr-only">Actions</span>
-            </th>
+            <th className="px-6 py-3"> ID </th>
+            <th className="px-6 py-3"> Name </th>
+            <th className="px-6 py-3"> Description </th>
+            <th className="px-6 py-3"> Price </th>
+            <th className="px-6 py-3"> Stock </th>
+            <th className="px-6 py-3"> Picture </th>
+            <th className="px-6 py-3"> <span className="sr-only">Actions</span> </th>
           </tr>
         </thead>
         <tbody>
@@ -149,122 +135,18 @@ const CategoryItemsCrud: React.FC = () => {
           ))}
         </tbody>
       </table>
+      
       {editItem && (
-        <div className="mt-4 p-4 border border-gray-300 bg-white dark:bg-gray-800">
-          <h3 className="text-lg font-semibold mb-2">Edit Item</h3>
-          <ReusableInput
-            label="Name"
-            name="name"
-            value={editItem.name}
-            onChange={handleInputChange}
-          />
-          <ReusableInput
-            label="Description"
-            name="description"
-            value={editItem.description}
-            onChange={handleInputChange}
-          />
-          <ReusableInput
-            label="Price"
-            name="price"
-            value={editItem.price}
-            onChange={handleInputChange}
-          />
-          <ReusableInput
-            label="Stock"
-            name="stock"
-            value={editItem.stock}
-            onChange={handleInputChange}
-          />
-          {editItem.pictures.map((picture, index) => (
-            <ReusableInput
-              key={index}
-              label={`Picture ${index + 1}`}
-              name={`picture${index + 1}`}
-              value={picture}
-              onChange={(e) => handleImageChange(e, index)}
-            />
-          ))}
-          <div className="mt-4">
-            <button
-              className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mr-2"
-              onClick={handleSaveEdit}
-            >
-              Save
-            </button>
-            <button
-              className="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded"
-              onClick={handleCancelEdit}
-            >
-              Cancel
-            </button>
-          </div>
-        </div>
+        <CategoryItemForm title="Edit Item" formData={editItem} handleInputChange={handleInputChange} handleImageChange={handleImageChange}  handleSave={handleSaveEdit} handleCancel={handleCancelEdit} />
       )}
       {showAddForm && (
-        <div className="mt-4 p-4 border border-gray-300 bg-white dark:bg-gray-800">
-          <h3 className="text-lg font-semibold mb-2">Add New Item</h3>
-          <ReusableInput
-            label="Name"
-            name="name"
-            value={newItem.name}
-            onChange={handleAddFormChange}
-          />
-          <ReusableInput
-            label="Description"
-            name="description"
-            value={newItem.description}
-            onChange={handleAddFormChange}
-          />
-          <ReusableInput
-            label="Price"
-            name="price"
-            value={newItem.price}
-            onChange={handleAddFormChange}
-          />
-          <ReusableInput
-            label="Stock"
-            name="stock"
-            value={newItem.stock}
-            onChange={handleAddFormChange}
-          />
-                  {[1, 2, 3, 4].map((index) => (
-          <ReusableInput
-            key={index}
-            label={`Picture ${index} URL`}
-            name={`picture${index}`}
-            value={newItem.pictures[index - 1]}
-            onChange={handleAddFormChange}
-          />
-        ))}
-        <div className="mt-4">
-          <button
-            className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mr-2"
-            onClick={handleSaveNewItem}
-          >
-            Save
-          </button>
-          <button
-            className="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded"
-            onClick={() => setShowAddForm(false)}
-          >
-            Cancel
-          </button>
-        </div>
+        <CategoryItemForm title="Add New Item" formData={newItem} handleInputChange={handleAddFormChange} handleSave={handleSaveNewItem} handleCancel={() => setShowAddForm(false)} />
+      )}
+      <div className="mt-4">
+        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={handleAddItem} > Add Item </button>
       </div>
-    )}
-    <div className="mt-4">
-      <button
-        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-        onClick={handleAddItem}
-      >
-        Add Item
-      </button>
     </div>
-  </div>
-);
+  );
 };
 
 export default CategoryItemsCrud;
-
-  
