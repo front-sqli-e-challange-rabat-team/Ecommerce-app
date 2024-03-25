@@ -1,15 +1,12 @@
-import { ReactNode } from "react";
 import { BiRightArrow } from "react-icons/bi";
 import { useAppSelector } from "../../hooks/redux";
+import { Outlet } from "react-router-dom";
+
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 
-interface LayoutProps {
-    children: ReactNode;
-}
-
-const FullPageLayout: React.FC<LayoutProps> = ({children}:LayoutProps) => {
-    const { theme } = useAppSelector((state) => state.general);
+const FullPageLayout = () => {
+  const { theme } = useAppSelector((state) => state.general);
 
   return (
     <div className="h-dvh w-full flex flex-col" data-theme={theme}>
@@ -27,7 +24,7 @@ const FullPageLayout: React.FC<LayoutProps> = ({children}:LayoutProps) => {
         <p className="justify-self-end ml-auto">English</p>
       </div>
       <Navbar />
-      <div className="flex-1">{children}</div>
+      <Outlet />
       <Footer />
     </div>
   );
