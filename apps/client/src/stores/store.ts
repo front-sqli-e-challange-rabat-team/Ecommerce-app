@@ -1,11 +1,13 @@
 import { configureStore } from '@reduxjs/toolkit'
 import generalSlice from './general.slice'
+import registerSlice from './register.slice'
 
 // ...
 
 export const store = configureStore({
   reducer: {
-    general: generalSlice
+    general: generalSlice,
+    register: registerSlice
   },
 })
 
