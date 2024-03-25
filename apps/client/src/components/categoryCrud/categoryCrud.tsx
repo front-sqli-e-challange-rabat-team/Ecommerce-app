@@ -195,3 +195,6 @@ const CategoryCrud: React.FC = () => {
 };
 
 export default CategoryCrud;
+
+// pnpm
+// turbo dev 
