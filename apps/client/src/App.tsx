@@ -9,7 +9,7 @@ const App = () => {
   const { theme } = useAppSelector((state) => state.general);
 
   return (
-    <div className="h-dvh w-full flex flex-col" data-theme={theme}>
+    <div className="h-fit w-full flex flex-col" data-theme={theme}>
       <div
         data-theme={theme === "dark" ? "nord" : "dark"}
         className="w-full bg-base-100 text-base-content flex justify-center py-2 px-20 border-b-2"
@@ -24,7 +24,7 @@ const App = () => {
         <p className="justify-self-end ml-auto">English</p>
       </div>
       <Navbar />
-      <div className="flex-1">
+      <div className="flex-1 px-20 py-10">
         <Outlet />
       </div>
       <Footer />

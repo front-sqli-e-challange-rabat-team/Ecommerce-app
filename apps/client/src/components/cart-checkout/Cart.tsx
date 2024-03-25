@@ -58,7 +58,7 @@ const Cart = () => {
   return (
     <div className="w-full h-full flex flex-col gap-10">
       <table className="text-start w-full flex flex-col gap-5">
-        <thead className="shadow-sm shadow-gray-500">
+        <thead className="shadow-sm shadow-gray-400 p-2 rounded-lg">
           <tr className="grid grid-cols-4">
             <th>Product</th>
             <th>Price</th>
@@ -69,16 +69,16 @@ const Cart = () => {
         <tbody className="flex flex-col gap-5">
           {products.map((product) => (
             <tr
-              className="grid grid-cols-4 shadow-sm shadow-gray-200"
+              className="grid grid-cols-4 shadow-sm shadow-gray-200 items-center text-center"
               key={product.id}
             >
-              <td className="flex items-center justify-start gap-2">
+              <td className="flex items-center justify-center gap-2">
                 <img className="w-14" src={product.imageUrl} alt="" />
                 <span>{product.name}</span>
               </td>
-              <td>{product.rating}</td>
+              <td>{product.rating}$</td>
               <td>
-                <form>
+                <form className="flex justify-center">
                   <input
                     className="border border-gray-600 w-20"
                     type="number"

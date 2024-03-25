@@ -83,63 +83,109 @@ const Checkout = () => {
     console.log(data);
   };
   return (
-    <div className="grid grid-cols-2">
-      <div>
-        <h2>Billing details</h2>
-        <form className="flex flex-col" onSubmit={handleSubmit(submitData)}>
-          <label htmlFor="firstName">First Name: </label>
-          <input type="text" {...register("firstName")} />
-
-          <label htmlFor="lastName">Last Name:</label>
-          <input type="text" {...register("lastName")} />
-
-          <label htmlFor="street">Street address:</label>
-          <input type="text" {...register("street")} />
-
-          <label htmlFor="city">Town/city:</label>
-          <input type="text" {...register("city")} />
-
-          <label htmlFor="phoneNumber">Phone number:</label>
-          <input type="number" {...register("phoneNumber")} />
-
-          <label htmlFor="email">Email address</label>
-          <input type="email" {...register("email")} />
-
-          <label htmlFor="next-checkout">
-            safe this information for faster check-out next time
-          </label>
-          <input type="checkbox" name="email" />
-          <input
-            className="cursor-pointer bg-red-600 text-white p-2 px-5 rounded-sm"
-            type="submit"
-            value="Place order"
-            disabled={!isDirty || !isValid}
-          />
-        </form>
+    <>
+      <h2 className="py-3 text-lg font-semibold">Billing details</h2>
+      <div className="grid grid-cols-2 gap-20">
+        <div className="flex flex-col gap-2">
+          <form
+            className="flex flex-col gap-3"
+            onSubmit={handleSubmit(submitData)}
+          >
+            <div className="flex flex-col">
+              <label htmlFor="firstName">First Name: </label>
+              <input
+                className="p-1 bg-gray-300 rounded-md"
+                type="text"
+                {...register("firstName")}
+              />
+            </div>
+            <div className="flex flex-col">
+              <label htmlFor="lastName">Last Name:</label>
+              <input
+                className="p-1 bg-gray-300 rounded-md"
+                type="text"
+                {...register("lastName")}
+              />
+            </div>
+            <div className="flex flex-col">
+              <label htmlFor="street">Street address:</label>
+              <input
+                className="p-1 bg-gray-300 rounded-md"
+                type="text"
+                {...register("street")}
+              />
+            </div>
+            <div className="flex flex-col">
+              <label htmlFor="city">Town/city:</label>
+              <input
+                className="p-1 bg-gray-300 rounded-md"
+                type="text"
+                {...register("city")}
+              />
+            </div>
+            <div className="flex flex-col">
+              <label htmlFor="phoneNumber">Phone number:</label>
+              <input
+                className="p-1 bg-gray-300 rounded-md"
+                type="number"
+                {...register("phoneNumber")}
+              />
+            </div>
+            <div className="flex flex-col">
+              <label htmlFor="email">Email address</label>
+              <input
+                className="p-1 bg-gray-300 rounded-md"
+                type="email"
+                {...register("email")}
+              />
+            </div>
+            <div className="flex gap-2">
+              <input
+                className="p-1 bg-gray-300 rounded-md"
+                type="checkbox"
+                name="check"
+              />
+              <label htmlFor="next-checkout">
+                safe this information for faster check-out next time
+              </label>
+            </div>
+            <input
+              className="cursor-pointer bg-red-600 text-white w-[50%] p-2 rounded-md self-center"
+              type="submit"
+              value="Place order"
+              disabled={!isDirty || !isValid}
+            />
+          </form>
+        </div>
+        <div className="flex flex-col gap-5">
+          <ul className="flex flex-col gap-2">
+            {products.map((product) => (
+              <li
+                className="grid grid-cols-4 shadow-sm shadow-gray-200"
+                key={product.id}
+              >
+                <img className="w-14" src={product.imageUrl} alt="" />
+                <span>{product.name}</span>
+                <span>{}$</span>
+              </li>
+            ))}
+          </ul>
+          <div className="flex flex-col gap-2">
+            <span className="border-b border-gray-500">subtotal: </span>
+            <span className="border-b border-gray-500">shipping: </span>
+            <span>total: </span>
+          </div>
+          <form className="flex gap-2">
+            <input className="p-2 border border-gray-600 w-[70%]" type="text" />
+            <input
+              className="cursor-pointer bg-red-600 text-white p-2 px-5 rounded-sm"
+              type="submit"
+              value="apply coupon"
+            />
+          </form>
+        </div>
       </div>
-      <div>
-        <ul>
-          {products.map((product) => (
-            <li
-              className="grid grid-cols-4 shadow-sm shadow-gray-200"
-              key={product.id}
-            >
-              <img className="w-14" src={product.imageUrl} alt="" />
-              <span>{product.name}</span>
-              <span>{}$</span>
-            </li>
-          ))}
-        </ul>
-        <form className="flex flex-1 gap-2 h-fit">
-          <input className="p-2 border border-gray-600 w-[70%]" type="text" />
-          <input
-            className="cursor-pointer bg-red-600 text-white p-2 px-5 rounded-sm"
-            type="submit"
-            value="apply coupon"
-          />
-        </form>
-      </div>
-    </div>
+    </>
   );
 };
 
