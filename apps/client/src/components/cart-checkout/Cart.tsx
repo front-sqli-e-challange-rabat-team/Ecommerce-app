@@ -106,20 +106,22 @@ const Cart = () => {
         </tfoot>
       </table>
       <div className="flex gap-10">
-        <form className="flex gap-2">
-          <input className="p-2 border border-gray-600 w-20" type="text" />
+        <form className="flex flex-1 gap-2 h-fit">
+          <input className="p-2 border border-gray-600 w-[70%]" type="text" />
           <input
             className="cursor-pointer bg-red-600 text-white p-2 px-5 rounded-sm"
             type="submit"
             value="apply coupon"
           />
         </form>
-        <div>
-          <span>Cart total</span>
-          <span>subtotal</span>
-          <span>shipping</span>
-          <span>total</span>
-          <button>Process to checkout</button>
+        <div className="flex flex-1 flex-col gap-2 p-3 border border-black shadow-md shadow-gray-500">
+          <h2>Cart total</h2>
+          <span className="border-b border-gray-600">subtotal:</span>
+          <span className="border-b border-gray-600">shipping:</span>
+          <span>total:</span>
+          <button className="cursor-pointer bg-red-600 text-white p-2 rounded-sm">
+            Process to checkout
+          </button>
         </div>
       </div>
     </div>
