@@ -9,7 +9,7 @@ const Input = ({registerName, type}:Props) => {
     const {register} = useFormContext();
     return (
         <input
-            type={"text" || type}
+            type={type || "text"}
             placeholder="Type here"
             className={`input input-bordered w-full max-w-xs !rounded-full placeholder:text-sm`}
             {...register(registerName)}

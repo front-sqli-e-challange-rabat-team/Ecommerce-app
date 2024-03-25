@@ -1,5 +1,4 @@
-import { useEffect } from "react";
-import { useAppSelector } from "../../hooks/redux";
+import { Dispatch, SetStateAction, useEffect } from "react";
 import { twMerge } from "tailwind-merge";
 
 export enum btnTypes {
@@ -8,19 +7,16 @@ export enum btnTypes {
 }
 
 type Props = {
+  theme: "dark"|"nord"
   disabled?: boolean;
   type: btnTypes;
   text: string;
   shouldSubmit?: boolean;
   onclickFct?: () => void;
 };
-const Button = ({ disabled, text, type, shouldSubmit, onclickFct }: Props) => {
-  const { theme } = useAppSelector((state) => state.general);
+export const AuthButton = ({ theme, disabled, text, type, shouldSubmit, onclickFct }: Props) => {
   const buttonType = shouldSubmit ? "submit" : "button";
 
-  useEffect(() => {
-    console.log(text + " " + buttonType);
-  }, []);
   return (
     <button
       type={buttonType}
@@ -31,11 +27,9 @@ const Button = ({ disabled, text, type, shouldSubmit, onclickFct }: Props) => {
         type == btnTypes.fit ? "!w-32" : ""
       )}
       disabled={disabled}
-      onClick={onclickFct}
+      onClick={()=>{onclickFct && onclickFct();}}
     >
       {text}
     </button>
   );
 };
-
-export default Button;
