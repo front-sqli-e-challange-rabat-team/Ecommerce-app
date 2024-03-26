@@ -1,16 +1,18 @@
-import { ReactNode } from "react";
 import { BiRightArrow } from "react-icons/bi";
 import { useAppSelector } from "../../hooks/redux";
+import { Outlet } from "react-router-dom";
+
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 import { twMerge } from "tailwind-merge";
+import { ReactNode } from "react";
 
 interface LayoutProps {
     children: ReactNode;
     have_DVH_height?: boolean
 }
 
-const FullPageLayout: React.FC<LayoutProps> = ({children, have_DVH_height}:LayoutProps) => {
+const FullPageLayout: React.FC<LayoutProps> = ({have_DVH_height}:LayoutProps) => {
     const { theme } = useAppSelector((state) => state.general);
 
   return (
@@ -32,7 +34,7 @@ const FullPageLayout: React.FC<LayoutProps> = ({children, have_DVH_height}:Layou
         <p className="justify-self-end ml-auto">English</p>
       </div>
       <Navbar />
-      <div className="flex-1">{children}</div>
+      <Outlet />
       <Footer />
     </div>
   );

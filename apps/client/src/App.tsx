@@ -7,6 +7,6 @@ function App() {
       <ProductDetails/>
     </FullPageLayout>
   );
-}
+};
 
 export default App;
