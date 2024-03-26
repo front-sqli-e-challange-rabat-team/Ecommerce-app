@@ -1,17 +1,37 @@
 import { createBrowserRouter } from "react-router-dom";
-import App from "./App";
 import Cart from "./components/cart-checkout/Cart";
 import Checkout from "./components/cart-checkout/Checkout";
 import FullPageLayout from "./components/Layouts/FullPageLayout";
 import Login from "./components/auth/login/Login";
 import Register from "./components/auth/register/Register";
 import ProductDetails from "./components/ProductDetails/ProductDetails";
+import Home from "./components/Home/home";
 
 const routes = createBrowserRouter([
   {
     path: "/",
-    element: <App />,
+    element: <FullPageLayout />,
     children: [
+      {
+        path: "/login",
+        element: <Login />,
+      },
+      {
+        path: "/register",
+        element: <Register />,
+      },
+      {
+        path: "/home",
+        element: <Home />,
+      },
+      {
+        path: "/product-details",
+        element: <ProductDetails />,
+      },
+      {
+        path: "/cart",
+        element: <Cart />,
+      },
       {
         path: "/cart",
         element: <Cart />,
@@ -21,18 +41,6 @@ const routes = createBrowserRouter([
         element: <Checkout />,
       },
     ],
-  },
-  {
-    path: "/login",
-    element: <FullPageLayout have_DVH_height={true}><Login/></FullPageLayout>
-  },
-  {
-    path: "/register",
-    element: <FullPageLayout have_DVH_height={true}><Register/></FullPageLayout>
-  },
-  {
-    path: "/product-details",
-    element: <FullPageLayout><ProductDetails/></FullPageLayout>
   }
 ]);
 

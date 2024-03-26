@@ -3,6 +3,8 @@ import { useAppSelector } from "../../hooks/redux";
 import Banner from "./showcaseElements/Banner";
 
 const Showcase = () => {
+  //TODO: enhance the image switch functionality to replace the removed image from the middle and insert it into the left side. play with sizes too
+    
   const {theme} = useAppSelector(state=>state.general);
 
   const [selectedImage, setSelectedImage] = useState('/products/Havic HV G-92 Gamepad/1.png'); // Initial image

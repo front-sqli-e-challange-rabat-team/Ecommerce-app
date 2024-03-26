@@ -6,11 +6,11 @@ const NewArrivalSection = () => {
       <SectionHeader title="New Arrival"/>
     <div className="flex flex-row py-10">
       
-      <div className="w-full grid grid-cols-2 items-center gap-2 justify-center">
-        <section className="py-5">
+      <div className="w-full flex justify-center items-center gap-2 bg-red-500">
+         <section className="py-5">
           <img src="DALL·EPS5.jpg" className="w-2/3 object-fit ml-auto h-full" />
         </section>
-        <section className="flex flex-col gap-5 mx-4">
+        {/*<section className="flex flex-col gap-5 mx-4">
           <div className="w-full flex items-end text-white" style={{ backgroundColor: '#0e0e0e' }}>
             <div className="bg-green flex flex-col justify-end p-4 rounded-lg">
               <p className="font-bold text-white text-base">Women's Collections</p>
@@ -30,7 +30,7 @@ const NewArrivalSection = () => {
               <img src="DALL·EPERFUME.jpg" className="w-1/2 rounded-lg" />
             </div>
           </div>
-        </section>
+        </section> */}
       </div>
     </div>
     </div>
