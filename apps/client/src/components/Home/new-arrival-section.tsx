@@ -4,9 +4,8 @@ const NewArrivalSection = () => {
   return (
     <div className="flex flex-col justify-between mb-4 px-4 md:px-8 my-20">
       <SectionHeader title="New Arrival"/>
-    <div className="flex flex-row py-10">
-      
-      <div className="w-full grid grid-cols-2 items-center gap-2 justify-center">
+
+      <div className="w-11/12 grid grid-cols-2 items-center gap-2 justify-items-center mx-auto place-content-center">
         <section className="py-5">
           <img src="DALL·EPS5.jpg" className="w-2/3 object-fit ml-auto h-full" />
         </section>
@@ -32,7 +31,6 @@ const NewArrivalSection = () => {
           </div>
         </section>
       </div>
-    </div>
     </div>
   );
 };

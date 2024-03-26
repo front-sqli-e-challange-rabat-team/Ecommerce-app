@@ -14,7 +14,7 @@ const FullPageLayout: React.FC<LayoutProps> = ({children}:LayoutProps) => {
   return (
     <div className="w-full flex flex-col"  data-theme={theme === "dark" ? "nord" : "dark"}>
       <div
-        data-theme={theme === "dark" ? "nord" : "dark"}
+        data-theme={theme === "nord" ? "nord" : "dark"}
         className="w-full bg-base-100 text-base-content flex justify-center py-2 px-20 border-b-2"
       >
         <p className="ml-auto flex justify-center items-center">

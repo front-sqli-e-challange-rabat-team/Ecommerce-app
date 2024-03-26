@@ -9,7 +9,7 @@ export default {
   plugins: [...config.plugins, require("daisyui")],
   daisyui: {
     ...config.daisyui,
-    themes:["dark", "nord"],
+    themes:["nord", "dark"],
     base: true,
     styled: true,
     utils: true,

@@ -78,18 +78,6 @@ const Footer = () => {
         <div className="flex justify-center items-center gap-2">
           <img src="/qrCode.svg" alt="" className="size-24 hidden 2xl:block" />
           <div className="mx-5 flex flex-col gap-3">
-            {/* <button
-              className={twMerge(
-                "w-full flex btn btn-outline border-2 justify-between",
-                theme == "dark" ? "btn-accent" : "btn-primary"
-              )}
-            >
-              <IoLogoGooglePlaystore className="size-7" />
-              <div>
-                <p className="uppercase text-sm font-bold">get it on</p>
-                <p className="font-bold text-base uppercase">google play</p>
-              </div>
-            </button> */}
             <button
               type="button"
               className={twMerge(

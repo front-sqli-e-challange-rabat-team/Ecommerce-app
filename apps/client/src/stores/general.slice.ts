@@ -7,16 +7,15 @@ interface State {
 
 // Define the initial state using that type
 const initialState: State = {
-  theme: "nord",
+  theme: "dark",
 }
 
 export const genSlice = createSlice({
   name: 'general',
-  // `createSlice` will infer the state type from the `initialState` argument
   initialState,
   reducers: {
     swapTheme: (state) => {
-      const new_theme = state.theme==='dark'?"nord":"dark";
+      const new_theme = state.theme==="dark"?"nord":"dark";
       return {
         ...state,
         theme: new_theme
