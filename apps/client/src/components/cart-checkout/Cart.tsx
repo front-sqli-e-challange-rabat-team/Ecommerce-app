@@ -1,4 +1,5 @@
 import { ChangeEvent, useState } from "react";
+import { Link } from "react-router-dom";
 
 const products = [
   {
@@ -58,7 +59,7 @@ const Cart = () => {
   return (
     <div className="w-full h-full flex flex-col gap-10">
       <table className="text-start w-full flex flex-col gap-5">
-        <thead className="shadow-sm shadow-gray-500">
+        <thead className="shadow-sm shadow-gray-400 p-2 rounded-lg">
           <tr className="grid grid-cols-4">
             <th>Product</th>
             <th>Price</th>
@@ -69,16 +70,16 @@ const Cart = () => {
         <tbody className="flex flex-col gap-5">
           {products.map((product) => (
             <tr
-              className="grid grid-cols-4 shadow-sm shadow-gray-200"
+              className="grid grid-cols-4 shadow-sm shadow-gray-200 items-center text-center"
               key={product.id}
             >
-              <td className="flex items-center justify-start gap-2">
+              <td className="flex items-center justify-center gap-2">
                 <img className="w-14" src={product.imageUrl} alt="" />
                 <span>{product.name}</span>
               </td>
-              <td>{product.rating}</td>
+              <td>{product.rating}$</td>
               <td>
-                <form>
+                <form className="flex justify-center">
                   <input
                     className="border border-gray-600 w-20"
                     type="number"
@@ -119,9 +120,11 @@ const Cart = () => {
           <span className="border-b border-gray-600">subtotal:</span>
           <span className="border-b border-gray-600">shipping:</span>
           <span>total:</span>
-          <button className="cursor-pointer bg-red-600 text-white p-2 rounded-sm">
-            Process to checkout
-          </button>
+          <Link to="/checkout">
+            <button className="cursor-pointer w-full bg-red-600 text-white p-2 rounded-sm">
+              Process to checkout
+            </button>
+          </Link>
         </div>
       </div>
     </div>
