@@ -1,14 +1,15 @@
-import Carousel from "./components/carousel";
+import FullPageLayout from "./components/Layouts/FullPageLayout";
+import Carousel from "./components/Home/items-carousel";
+import FlashSalesHeader from "./components/Home/flash-sales-header";
+import Home from "./components/Home/home";
 
 function App() {
   
 
   return (
-    <>
-      <div className="container mx-auto p-4">
-        <Carousel />
-      </div>
-    </>
+    <FullPageLayout>
+      <Home />
+    </FullPageLayout>
   );
 }
 
