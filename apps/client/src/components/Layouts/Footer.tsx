@@ -1,8 +1,10 @@
 import { FiSend } from "react-icons/fi";
 import { IoLogoGooglePlaystore } from "react-icons/io5";
 import { GrAppleAppStore } from "react-icons/gr";
+import { FaGooglePlay } from "react-icons/fa6";
 import { useAppSelector } from "../../hooks/redux";
 import { twMerge } from "tailwind-merge";
+import { BsApple } from "react-icons/bs";
 
 const Footer = () => {
   const { theme } = useAppSelector((state) => state.general);
@@ -20,7 +22,7 @@ const Footer = () => {
           />
           <button
             className={twMerge(
-              'btn !min-h-0 !h-fit !w-fit !px-2 py-2 rounded-lg absolute right-2',
+              "btn !min-h-0 !h-fit !w-fit !px-2 py-2 rounded-lg absolute right-2",
               theme == "dark" ? "btn-accent" : "btn-primary"
             )}
           >
@@ -76,7 +78,7 @@ const Footer = () => {
         <div className="flex justify-center items-center gap-2">
           <img src="/qrCode.svg" alt="" className="size-24 hidden 2xl:block" />
           <div className="mx-5 flex flex-col gap-3">
-            <button
+            {/* <button
               className={twMerge(
                 "w-full flex btn btn-outline border-2 justify-between",
                 theme == "dark" ? "btn-accent" : "btn-primary"
@@ -87,19 +89,44 @@ const Footer = () => {
                 <p className="uppercase text-sm font-bold">get it on</p>
                 <p className="font-bold text-base uppercase">google play</p>
               </div>
-            </button>
+            </button> */}
             <button
+              type="button"
               className={twMerge(
-                "w-full flex btn btn-outline border-2 justify-between",
-                theme == "dark" ? "btn-accent" : "btn-primary"
+                "inline-flex items-center justify-center border-2 rounded-full py-2.5 px-6 text-center text-white no-underline outline-none transition-all duration-200 hover:bg-transparent",
+                theme == "dark"
+                  ? "border-black bg-black text-white  hover:text-black"
+                  : "border-white bg-white text-black  hover:text-white"
               )}
             >
-              <GrAppleAppStore className="size-7" />
+              <div className="mr-3">
+              <FaGooglePlay className="size-7"/>
+              </div>
               <div>
-                <p className="uppercase text-sm font-bold">get it on</p>
-                <p className="font-bold text-base uppercase">apple store</p>
+                <div className="text-xs">GET IT ON</div>
+                <div className="-mt-1 font-sans text-xl font-semibold">
+                  Google Play
+                </div>
               </div>
             </button>
+
+            <a
+              href="#"
+              className={twMerge(
+                "inline-flex items-center justify-center border-2 rounded-full py-2.5 px-6 text-center text-white no-underline outline-none transition-all duration-200 hover:bg-transparent",
+                theme == "dark"
+                  ? "border-black bg-black text-white  hover:text-black"
+                  : "border-white bg-white text-black  hover:text-white"
+              )}
+            >
+              <BsApple className="size-8" />
+              <span className="texts ml-4 flex flex-col items-start">
+                <span className="text-1 mb-1 text-xs leading-4">
+                  Download form
+                </span>
+                <span className="text-2 font-semibold">App store</span>
+              </span>
+            </a>
           </div>
         </div>
       </section>

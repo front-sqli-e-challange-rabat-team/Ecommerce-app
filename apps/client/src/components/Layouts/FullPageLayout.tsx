@@ -9,7 +9,7 @@ const FullPageLayout = () => {
   const { theme } = useAppSelector((state) => state.general);
 
   return (
-    <div className="h-dvh w-full flex flex-col" data-theme={theme}>
+    <div className="w-full flex flex-col"  data-theme={theme === "dark" ? "nord" : "dark"}>
       <div
         data-theme={theme === "dark" ? "nord" : "dark"}
         className="w-full bg-base-100 text-base-content flex justify-center py-2 px-20 border-b-2"
