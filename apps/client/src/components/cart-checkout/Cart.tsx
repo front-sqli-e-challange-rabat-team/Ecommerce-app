@@ -1,4 +1,5 @@
 import { ChangeEvent, useState } from "react";
+import { Link } from "react-router-dom";
 
 const products = [
   {
@@ -119,9 +120,11 @@ const Cart = () => {
           <span className="border-b border-gray-600">subtotal:</span>
           <span className="border-b border-gray-600">shipping:</span>
           <span>total:</span>
-          <button className="cursor-pointer bg-red-600 text-white p-2 rounded-sm">
-            Process to checkout
-          </button>
+          <Link to="/checkout">
+            <button className="cursor-pointer w-full bg-red-600 text-white p-2 rounded-sm">
+              Process to checkout
+            </button>
+          </Link>
         </div>
       </div>
     </div>
