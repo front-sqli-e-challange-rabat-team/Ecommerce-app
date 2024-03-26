@@ -1,7 +1,4 @@
-<<<<<<< HEAD
-import { TitleUi } from '@repo/ui';
 import AdminDashboard from './components/AdminDashboard';
-=======
 import { BiRightArrow } from "react-icons/bi";
 import { useAppSelector } from "./hooks/redux";
 import { Outlet } from "react-router-dom";
@@ -11,20 +8,9 @@ import Footer from "./components/Layouts/Footer";
 
 const App = () => {
   const { theme } = useAppSelector((state) => state.general);
->>>>>>> develop
 
   return (
-<<<<<<< HEAD
-    <>
-      <div className='bg-red-300 text-center'>anas jaidi</div>
-      <TitleUi />
-
-      <div className="flex items-center justify-center">
-        <AdminDashboard />
-      </div>
-    </>
-=======
-    <div className="h-dvh w-full flex flex-col" data-theme={theme}>
+    <div className="h-fit w-full flex flex-col" data-theme={theme}>
       <div
         data-theme={theme === "dark" ? "nord" : "dark"}
         className="w-full bg-base-100 text-base-content flex justify-center py-2 px-20 border-b-2"
@@ -44,7 +30,6 @@ const App = () => {
       </div>
       <Footer />
     </div>
->>>>>>> develop
   );
 };
 

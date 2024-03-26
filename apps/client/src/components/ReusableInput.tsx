@@ -18,7 +18,7 @@ const ReusableInput: React.FC<InputProps> = ({ label, type = 'text', name, value
         name={name}
         value={value}
         onChange={onChange}
-        className="form-input mt-1 block w-full"
+        className="form-input mt-1 block w-full text-gray-800"
       />
     </label>
   );

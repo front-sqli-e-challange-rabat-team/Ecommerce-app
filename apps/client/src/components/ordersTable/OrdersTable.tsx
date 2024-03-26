@@ -80,7 +80,7 @@ const OrdersTable: React.FC = () => {
   };
 
   return (
-    <div className="orders-table">
+    <div className="orders-table flex flex-col items-center justify-center">
       <h2 className="text-2xl font-semibold mb-4 uppercase text-gray-800">Orders Table</h2>
       <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
         <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">

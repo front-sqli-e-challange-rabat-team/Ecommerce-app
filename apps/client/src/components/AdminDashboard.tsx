@@ -38,7 +38,7 @@ const AdminDashboard: React.FC = () => {
   const [activeTab, setActiveTab] = useState<Tabs>(Tabs.CategoryCrud);
 
   return (
-    <div className="admin-dashboard flex flex-col items-center justify-center">
+    <div className="admin-dashboard flex flex-col items-center justify-center m-6">
       <h1 className="text-2xl text-gray-800 font-semibold mb-8 ">Admin Dashboard</h1>
       <div className="p-10 rounded-2xl bg-white shadow-md">
         <div className="flex mb-8 justify-center items-center">
