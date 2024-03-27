@@ -5,8 +5,9 @@ import Actions from "./ProductCard/Actions";
 import Colors from "./ProductCard/Colors";
 import DeliveryOptions from "./ProductCard/DeliveryOptions";
 import { useAppSelector } from "../../hooks/redux";
+
 const Card = () => {
-  const {theme} = useAppSelector(state=> state.general)
+  const {theme} = useAppSelector(state=> state.general);
   return (
     <section>
       <section className="flex flex-col gap-2">
@@ -23,7 +24,7 @@ const Card = () => {
       <section className="flex flex-col gap-5">
         <Colors />
         <Sizes />
-        <Actions  theme={theme}/>
+        <Actions theme={theme} />
       </section>
       <section className="mt-5">
         <DeliveryOptions />

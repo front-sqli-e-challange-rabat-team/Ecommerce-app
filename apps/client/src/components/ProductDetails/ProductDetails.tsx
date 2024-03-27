@@ -1,4 +1,4 @@
-import BreadCrumbs from "./Breadcrumbs";
+import BreadCrumbs from "../Breadcrumbs";
 import Showcase from "./Showcase";
 import Card from "./Card";
 

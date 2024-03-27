@@ -1,6 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
-import Cart from "./components/cart-checkout/Cart";
-import Checkout from "./components/cart-checkout/Checkout";
+import Cart from "./components/Cart/Cart";
+import Checkout from "./components/checkout/Checkout";
 import Login from "./components/auth/login/Login";
 import Register from "./components/auth/register/Register";
 import ProductDetails from "./components/ProductDetails/ProductDetails";

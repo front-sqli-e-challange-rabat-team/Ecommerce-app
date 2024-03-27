@@ -1,11 +1,13 @@
 import { FaRegHeart } from "react-icons/fa";
 import { twMerge } from "tailwind-merge";
-import Input from "./Actions/input";
+import {Input} from "@repo/ui/src/QuantityInput";
 import { ThemeState } from "../../../types/Theme";
+import { useState } from "react";
 const Actions = ({theme}:ThemeState) => {
+  const [quantity, setQuantity] = useState<number>(0);
   return (
     <div className="flex gap-5">
-      <Input theme={theme}/>
+      <Input theme={theme} setter={setQuantity}/>
       <button
             className={twMerge(
                 "btn !min-h-0 !h-10",
