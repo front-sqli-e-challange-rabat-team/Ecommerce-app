@@ -6,6 +6,7 @@ import Login from "./components/auth/login/Login";
 import Register from "./components/auth/register/Register";
 import ProductDetails from "./components/ProductDetails/ProductDetails";
 import Profile from "./components/profile/Profile";
+import AdminDashboard from "./components/AdminDashboard";
 
 const routes = createBrowserRouter([
   {
@@ -35,6 +36,11 @@ const routes = createBrowserRouter([
       {
         path: "/product-details",
         element: <ProductDetails/>
+      },
+      {
+        path: "/dashboard",
+        element: <AdminDashboard />,
+
       }
     ],
   },

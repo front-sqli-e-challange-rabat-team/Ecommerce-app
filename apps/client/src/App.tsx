@@ -1,3 +1,4 @@
+import AdminDashboard from './components/AdminDashboard';
 import { BiRightArrow } from "react-icons/bi";
 import { useAppSelector } from "./hooks/redux";
 import { Outlet } from "react-router-dom";
@@ -24,7 +25,7 @@ const App = () => {
         <p className="justify-self-end ml-auto">English</p>
       </div>
       <Navbar />
-      <div className="flex-1 px-20 py-10">
+      <div className="flex-1">
         <Outlet />
       </div>
       <Footer />
