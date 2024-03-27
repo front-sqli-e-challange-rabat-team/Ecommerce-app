@@ -1,5 +1,5 @@
 {
   "extends": "@repo/typescript-config/react.json",
-  "include": ["src"],
+  "include": ["src", "../../packages/ui/src/QuantityInput.tsx"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
