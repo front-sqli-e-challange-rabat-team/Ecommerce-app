@@ -1,4 +1,3 @@
-import React from 'react';
 import { IconType } from 'react-icons'; // This imports the type for icons
 
 interface CategoryCardProps {

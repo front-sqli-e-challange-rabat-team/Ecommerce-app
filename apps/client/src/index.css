@@ -25,3 +25,13 @@ body,
 .inter {
   font-family: "Inter", sans-serif;
 }
+
+.shake {
+  animation: shake 400ms ease-in-out alternate; /* Adjust as needed */
+}
+
+@keyframes shake {
+  0% { transform: translateX(-5px); }
+  50% { transform: translateX(5px); }
+  100% { transform: translateX(-5px); }
+}

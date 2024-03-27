@@ -89,15 +89,15 @@ const Footer = () => {
               <FaGooglePlay className="size-7"/>
               </div>
               <div>
-                <div className="text-xs">GET IT ON</div>
-                <div className="-mt-1 font-sans text-xl font-semibold">
-                  Google Play
+                <div className="text-xs capitalize">get it on</div>
+                <div className="-mt-1 font-sans text-xl font-semibold capitalize">
+                  google play
                 </div>
               </div>
             </button>
 
-            <a
-              href="#"
+            <button
+              type="button"
               className={twMerge(
                 "flex items-center justify-center border-2 rounded-full py-1 px-6 text-center text-white no-underline outline-none transition-all duration-200 hover:bg-transparent",
                 theme == "nord"
@@ -105,14 +105,16 @@ const Footer = () => {
                   : "border-white bg-white text-black  hover:text-white"
               )}
             >
-              <BsApple className="size-8" />
-              <span className="texts ml-4 flex flex-col items-start">
-                <span className="text-1 mb-1 text-xs leading-4">
-                  Download form
-                </span>
-                <span className="text-2 font-semibold">App store</span>
-              </span>
-            </a>
+              <div className="mr-3">
+              <BsApple className="size-7"/>
+              </div>
+              <div>
+                <div className="text-xs capitalize">download from</div>
+                <div className="-mt-1 font-sans text-xl font-semibold capitalize">
+                  Apple Store
+                </div>
+              </div>
+            </button>
           </div>
         </div>
       </section>
