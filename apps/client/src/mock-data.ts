@@ -52,7 +52,7 @@ export const mockProducts = [
       {
         id: 7,
         imageUrl: "https://img.freepik.com/free-photo/headphones-isolated_1203-7969.jpg",
-        name: "Wireless Headphones",
+        name: "Wireless Headphone",
         discountRate: 25,
         originalPrice: 199,
         rating: 4.7,

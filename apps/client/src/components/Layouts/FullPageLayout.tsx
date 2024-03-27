@@ -1,23 +1,17 @@
 import { BiRightArrow } from "react-icons/bi";
 import { useAppSelector } from "../../hooks/redux";
-import { Outlet } from "react-router-dom";
-
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 import { twMerge } from "tailwind-merge";
-import { ReactNode } from "react";
+import { Outlet, useLocation } from "react-router-dom";
 
-interface LayoutProps {
-    children: ReactNode;
-    have_DVH_height?: boolean
-}
 
-const FullPageLayout: React.FC<LayoutProps> = ({have_DVH_height}:LayoutProps) => {
+const FullPageLayout= () => {
     const { theme } = useAppSelector((state) => state.general);
-
+    const currentPath = useLocation()
   return (
     <div 
-      className={twMerge("w-full flex flex-col", have_DVH_height? "h-dvh": "")} 
+      className={twMerge("w-full flex flex-col", ["/login","/register"].includes(currentPath.pathname)? "h-dvh max-h-dvh ": "")} 
       data-theme={theme}
     >
       <div
@@ -34,7 +28,9 @@ const FullPageLayout: React.FC<LayoutProps> = ({have_DVH_height}:LayoutProps) =>
         <p className="justify-self-end ml-auto">English</p>
       </div>
       <Navbar />
-      <Outlet />
+      <div className="flex-1">
+        <Outlet/>
+      </div>
       <Footer />
     </div>
   );

@@ -1,6 +1,4 @@
 import { FiSend } from "react-icons/fi";
-import { IoLogoGooglePlaystore } from "react-icons/io5";
-import { GrAppleAppStore } from "react-icons/gr";
 import { FaGooglePlay } from "react-icons/fa6";
 import { useAppSelector } from "../../hooks/redux";
 import { twMerge } from "tailwind-merge";
@@ -10,7 +8,7 @@ const Footer = () => {
   const { theme } = useAppSelector((state) => state.general);
 
   return (
-    <footer className="footer xl:p-5 2xl:p-10 bg-base-200 text-base-content justify-evenly border-t-2">
+    <footer className="footer p-5 bg-base-200 text-base-content justify-evenly border-t-2">
       <section>
         <p className="capitalize font-black text-2xl h-fit">exclusive</p>
         <p>subscribe for 10% off at your first purchase</p>
@@ -78,23 +76,11 @@ const Footer = () => {
         <div className="flex justify-center items-center gap-2">
           <img src="/qrCode.svg" alt="" className="size-24 hidden 2xl:block" />
           <div className="mx-5 flex flex-col gap-3">
-            {/* <button
-              className={twMerge(
-                "w-full flex btn btn-outline border-2 justify-between",
-                theme == "dark" ? "btn-accent" : "btn-primary"
-              )}
-            >
-              <IoLogoGooglePlaystore className="size-7" />
-              <div>
-                <p className="uppercase text-sm font-bold">get it on</p>
-                <p className="font-bold text-base uppercase">google play</p>
-              </div>
-            </button> */}
             <button
               type="button"
               className={twMerge(
-                "inline-flex items-center justify-center border-2 rounded-full py-2.5 px-6 text-center text-white no-underline outline-none transition-all duration-200 hover:bg-transparent",
-                theme == "dark"
+                "flex items-center justify-center border-2 rounded-full py-1 px-6 text-center text-white no-underline outline-none transition-all duration-200 hover:bg-transparent",
+                theme == "nord"
                   ? "border-black bg-black text-white  hover:text-black"
                   : "border-white bg-white text-black  hover:text-white"
               )}
@@ -113,8 +99,8 @@ const Footer = () => {
             <a
               href="#"
               className={twMerge(
-                "inline-flex items-center justify-center border-2 rounded-full py-2.5 px-6 text-center text-white no-underline outline-none transition-all duration-200 hover:bg-transparent",
-                theme == "dark"
+                "flex items-center justify-center border-2 rounded-full py-1 px-6 text-center text-white no-underline outline-none transition-all duration-200 hover:bg-transparent",
+                theme == "nord"
                   ? "border-black bg-black text-white  hover:text-black"
                   : "border-white bg-white text-black  hover:text-white"
               )}
