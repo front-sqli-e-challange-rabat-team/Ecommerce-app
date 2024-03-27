@@ -1,16 +1,30 @@
 import { BiSupport } from "react-icons/bi";
 import { IoShieldCheckmarkOutline } from "react-icons/io5";
 import { TbTruckDelivery } from "react-icons/tb";
+import { twMerge } from "tailwind-merge";
+import { useAppSelector } from "../../hooks/redux";
 
 const DeliveryBanner = () => {
+  const { theme } = useAppSelector((state) => state.general);
+
   return (
     <div className="flex flex-row items-center justify-center">
-      <div className="flex items-center gap-4 flex-col px-16 py-16">
+      <div className="flex items-center gap-4 flex-col px-16 py-16 transition all 0.4s hover:scale-[1.01]">
         <div className="relative">
           <div className="rounded-full border-2 border-gray-700 p-3">
-            <div className="rounded-full bg-black w-16 h-16 flex items-center justify-center">
+            <div
+              className={twMerge(
+                "rounded-full w-16 h-16 flex items-center justify-center",
+                theme == "dark" ? "bg-white" : "bg-black"
+              )}
+            >
               <div>
-                <TbTruckDelivery className="text-white size-8" />
+                <TbTruckDelivery
+                  className={twMerge(
+                    "size-8",
+                    theme == "dark" ? "text-black" : "text-white"
+                  )}
+                />
               </div>
             </div>
           </div>
@@ -23,12 +37,22 @@ const DeliveryBanner = () => {
         </div>
       </div>
 
-      <div className="flex items-center gap-4 flex-col px-16 py-16">
+      <div className="flex items-center gap-4 flex-col px-16 py-16 transition all 0.4s hover:scale-[1.01]">
         <div className="relative">
           <div className="rounded-full border-2 border-gray-700 p-3">
-            <div className="rounded-full bg-black w-16 h-16 flex items-center justify-center">
+            <div
+              className={twMerge(
+                "rounded-full w-16 h-16 flex items-center justify-center",
+                theme == "dark" ? "bg-white" : "bg-black"
+              )}
+            >
               <div>
-                  <BiSupport className="text-white size-8" />
+                <BiSupport
+                  className={twMerge(
+                    "size-8",
+                    theme == "dark" ? "text-black" : "text-white"
+                  )}
+                />
               </div>
             </div>
           </div>
@@ -41,12 +65,22 @@ const DeliveryBanner = () => {
         </div>
       </div>
 
-      <div className="flex items-center gap-4 flex-col px-16 py-16">
+      <div className="flex items-center gap-4 flex-col px-16 py-16 transition all 0.4s hover:scale-[1.01]">
         <div className="relative">
           <div className="rounded-full border-2 border-gray-700 p-3">
-            <div className="rounded-full bg-black w-16 h-16 flex items-center justify-center">
+            <div
+              className={twMerge(
+                "rounded-full w-16 h-16 flex items-center justify-center",
+                theme == "dark" ? "bg-white" : "bg-black"
+              )}
+            >
               <div>
-                <IoShieldCheckmarkOutline className="text-white size-8" />
+                <IoShieldCheckmarkOutline
+                  className={twMerge(
+                    "size-8",
+                    theme == "dark" ? "text-black" : "text-white"
+                  )}
+                />
               </div>
             </div>
           </div>
@@ -58,7 +92,6 @@ const DeliveryBanner = () => {
           <p className="text-sm">We reurn money within 30 days</p>
         </div>
       </div>
-      
     </div>
   );
 };

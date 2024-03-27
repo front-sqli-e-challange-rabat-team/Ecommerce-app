@@ -1,18 +1,25 @@
-import { ReactNode } from "react";
 import { BiRightArrow } from "react-icons/bi";
 import { useAppSelector } from "../../hooks/redux";
+import { Outlet, useLocation } from "react-router-dom";
+import { useEffect } from "react";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
+import { twMerge } from "tailwind-merge";
 
-interface LayoutProps {
-    children: ReactNode;
-}
 
-const FullPageLayout: React.FC<LayoutProps> = ({children}:LayoutProps) => {
+const FullPageLayout = () => {
     const { theme } = useAppSelector((state) => state.general);
+    const currentPath = useLocation(); 
 
+    useEffect(() => {
+        console.log(currentPath.pathname);
+        
+    }, []);
   return (
-    <div className="w-full flex flex-col"  data-theme={theme === "dark" ? "nord" : "dark"}>
+    <div 
+      className={twMerge("w-full flex flex-col", currentPath.pathname in ['/login', '/register']? "h-dvh max-h-dvh": "")} 
+      data-theme={theme}
+    >
       <div
         data-theme={theme === "nord" ? "nord" : "dark"}
         className="w-full bg-base-100 text-base-content flex justify-center py-2 px-20 border-b-2"
@@ -27,7 +34,9 @@ const FullPageLayout: React.FC<LayoutProps> = ({children}:LayoutProps) => {
         <p className="justify-self-end ml-auto">English</p>
       </div>
       <Navbar />
-      <div className="flex-1">{children}</div>
+      <div className="flex-1">
+        <Outlet />
+      </div>
       <Footer />
     </div>
   );

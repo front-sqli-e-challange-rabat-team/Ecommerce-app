@@ -1,6 +1,4 @@
 import { FiSend } from "react-icons/fi";
-import { IoLogoGooglePlaystore } from "react-icons/io5";
-import { GrAppleAppStore } from "react-icons/gr";
 import { FaGooglePlay } from "react-icons/fa6";
 import { useAppSelector } from "../../hooks/redux";
 import { twMerge } from "tailwind-merge";
@@ -37,9 +35,9 @@ const Footer = () => {
       </section>
       <section>
         <p className="capitalize font-semibold text-lg">support</p>
-        <p>111 Bijoy sarani, Dhaka, DH 1515, Bangladesh.</p>
-        <p>exclusive@gmail.com</p>
-        <p>+88015-88888-9999</p>
+        <p>SQLi Rabat</p>
+        <p>khorafi@gmail.com</p>
+        <p>+0123-45-6789</p>
       </section>
       <nav>
         <p className="capitalize font-semibold text-lg">Account</p>
@@ -82,7 +80,7 @@ const Footer = () => {
               type="button"
               className={twMerge(
                 "inline-flex items-center justify-center border-2 rounded-full py-2.5 px-6 text-center text-white no-underline outline-none transition-all duration-200 hover:bg-transparent",
-                theme == "dark"
+                theme == "nord"
                   ? "border-black bg-black text-white  hover:text-black"
                   : "border-white bg-white text-black  hover:text-white"
               )}
@@ -102,7 +100,7 @@ const Footer = () => {
               href="#"
               className={twMerge(
                 "inline-flex items-center justify-center border-2 rounded-full py-2.5 px-6 text-center text-white no-underline outline-none transition-all duration-200 hover:bg-transparent",
-                theme == "dark"
+                theme == "nord"
                   ? "border-black bg-black text-white  hover:text-black"
                   : "border-white bg-white text-black  hover:text-white"
               )}
