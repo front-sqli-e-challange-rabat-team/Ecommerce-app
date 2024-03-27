@@ -1,0 +1,22 @@
+export type User = {
+  PK: string;
+  SK: string;
+  email: string;
+  firstName: string;
+  lastName: string;
+  password: string;
+  passwordChangedAt: string;
+  referalCode: string;
+  referredBy?: string;
+  credits: number;
+  passwordResetToken: string;
+  passwordResetTokenExpireDate: string;
+  role: string;
+  profileImage: string;
+  createdAt: string;
+  updatedAt: string;
+  phoneNumber: string;
+  emailConfirmationCode: string;
+  emailConfirmed: boolean;
+  phoneNumberConfirmed: boolean;
+};
