@@ -7,13 +7,8 @@ const ThemeSwitch = () => {
 
   return (
     <label className="swap swap-rotate">
-      {/* this hidden checkbox controls the state */}
       <input type="checkbox" onChange={()=>{dispatcher(swapTheme())}}/>
-
-      {/* sun icon */}
       <CiCloudSun className="swap-off fill-current size-7"/>
-
-      {/* moon icon */}
       <CiCloudMoon className="swap-on fill-current size-7"/>
     </label>
   );

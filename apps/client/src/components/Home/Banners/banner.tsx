@@ -1,7 +1,4 @@
-
-interface BannerProps {
-    imgUrl: string;
-}
+import { BannerProps } from "../../../types/BannerProps";
 
 const Banner: React.FC<BannerProps> = ({ imgUrl }) => {
     return (

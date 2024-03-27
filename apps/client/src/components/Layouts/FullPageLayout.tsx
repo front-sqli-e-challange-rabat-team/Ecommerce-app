@@ -1,27 +1,26 @@
 import { BiRightArrow } from "react-icons/bi";
 import { useAppSelector } from "../../hooks/redux";
-import { Outlet, useLocation } from "react-router-dom";
-import { useEffect } from "react";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 import { twMerge } from "tailwind-merge";
+import { Outlet, useLocation, useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 
-const FullPageLayout = () => {
+const FullPageLayout= () => {
     const { theme } = useAppSelector((state) => state.general);
-    const currentPath = useLocation(); 
-
-    useEffect(() => {
-        console.log(currentPath.pathname);
-        
-    }, []);
+    const currentPath = useLocation();
+    const navigate = useNavigate()
+    useEffect(()=>{
+      if(currentPath.pathname === "/") navigate("/home")
+    });
   return (
     <div 
-      className={twMerge("w-full flex flex-col", currentPath.pathname in ['/login', '/register']? "h-dvh max-h-dvh": "")} 
+      className={twMerge("w-full flex flex-col", ["/login","/register"].includes(currentPath.pathname)? "h-dvh max-h-dvh ": "")} 
       data-theme={theme}
     >
       <div
-        data-theme={theme === "nord" ? "nord" : "dark"}
+        data-theme={theme === "dark" ? "nord" : "dark"}
         className="w-full bg-base-100 text-base-content flex justify-center py-2 px-20 border-b-2"
       >
         <p className="ml-auto flex justify-center items-center">
@@ -35,7 +34,7 @@ const FullPageLayout = () => {
       </div>
       <Navbar />
       <div className="flex-1">
-        <Outlet />
+        <Outlet/>
       </div>
       <Footer />
     </div>

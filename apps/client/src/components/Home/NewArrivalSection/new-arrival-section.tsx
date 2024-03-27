@@ -1,5 +1,5 @@
-import Banner from "./banner";
-import SectionHeader from "./section-header";
+import Banner from "../Banners/banner";
+import SectionHeader from "../Common/section-header";
 
 const NewArrivalSection = () => {
   return (

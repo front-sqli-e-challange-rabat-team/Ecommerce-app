@@ -10,8 +10,10 @@ const initialState: Register = {
     lastName: "",
     email:"",
     password: "",
-    gender: Gender.male
-  }
+    gender: Gender.male,
+    emailVerified: false
+  },
+  done: false
 }
 
 export const registerSlice = createSlice({
@@ -24,14 +26,19 @@ export const registerSlice = createSlice({
             ...state, step:action.payload
         }
     },
-    setData: (state, action:PayloadAction<Omit<Register, "step">>) => {
+    setData: (state, action:PayloadAction<Omit<Register, "step" | "done">>) => {
       return {
         ...state, ...action.payload
+      }
+    },
+    setAsDone: (state) => {
+      return{
+        ...state, ...{done: true}
       }
     }
   },
 })
 
-export const { changeStep, setData } = registerSlice.actions
+export const { changeStep, setData, setAsDone } = registerSlice.actions
 
 export default registerSlice.reducer

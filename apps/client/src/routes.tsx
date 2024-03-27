@@ -1,5 +1,4 @@
 import { createBrowserRouter } from "react-router-dom";
-import App from "./App";
 import Cart from "./components/cart-checkout/Cart";
 import Checkout from "./components/cart-checkout/Checkout";
 import Login from "./components/auth/login/Login";
@@ -19,14 +18,6 @@ const routes = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "/cart",
-        element: <Cart />,
-      },
-      {
-        path: "/checkout",
-        element: <Checkout />,
-      },
-      {
         path: "/login",
         element: <Login />,
       },
@@ -35,12 +26,20 @@ const routes = createBrowserRouter([
         element: <Register />,
       },
       {
-        path: "/profile",
-        element: <Profile />,
+        path: "/product-details",
+        element: <ProductDetails />,
       },
       {
-        path: "/product-details",
-        element: <ProductDetails/>
+        path: "/cart",
+        element: <Cart />,
+      },
+      {
+        path: "/checkout",
+        element: <Checkout />,
+      },
+      {
+        path: "/profile",
+        element: <Profile />,
       }
     ],
   },

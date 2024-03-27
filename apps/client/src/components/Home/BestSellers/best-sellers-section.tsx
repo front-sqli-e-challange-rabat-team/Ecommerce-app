@@ -1,5 +1,5 @@
-import ItemsCarousel from "./items-carousel";
-import SectionHeader from "./section-header";
+import ItemsCarousel from "../Common/items-carousel";
+import SectionHeader from "../Common/section-header";
 
 const BestSellersSecion = () => {
   return (

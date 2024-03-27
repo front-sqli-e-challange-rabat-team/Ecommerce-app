@@ -8,7 +8,7 @@ const Footer = () => {
   const { theme } = useAppSelector((state) => state.general);
 
   return (
-    <footer className="footer xl:p-5 2xl:p-10 bg-base-200 text-base-content justify-evenly border-t-2">
+    <footer className="footer p-5 bg-base-200 text-base-content justify-evenly border-t-2">
       <section>
         <p className="capitalize font-black text-2xl h-fit">exclusive</p>
         <p>subscribe for 10% off at your first purchase</p>
@@ -79,7 +79,7 @@ const Footer = () => {
             <button
               type="button"
               className={twMerge(
-                "inline-flex items-center justify-center border-2 rounded-full py-2.5 px-6 text-center text-white no-underline outline-none transition-all duration-200 hover:bg-transparent",
+                "flex items-center justify-center border-2 rounded-full py-1 px-6 text-center text-white no-underline outline-none transition-all duration-200 hover:bg-transparent",
                 theme == "nord"
                   ? "border-black bg-black text-white  hover:text-black"
                   : "border-white bg-white text-black  hover:text-white"
@@ -89,30 +89,32 @@ const Footer = () => {
               <FaGooglePlay className="size-7"/>
               </div>
               <div>
-                <div className="text-xs">GET IT ON</div>
-                <div className="-mt-1 font-sans text-xl font-semibold">
-                  Google Play
+                <div className="text-xs capitalize">get it on</div>
+                <div className="-mt-1 font-sans text-xl font-semibold capitalize">
+                  google play
                 </div>
               </div>
             </button>
 
-            <a
-              href="#"
+            <button
+              type="button"
               className={twMerge(
-                "inline-flex items-center justify-center border-2 rounded-full py-2.5 px-6 text-center text-white no-underline outline-none transition-all duration-200 hover:bg-transparent",
+                "flex items-center justify-center border-2 rounded-full py-1 px-6 text-center text-white no-underline outline-none transition-all duration-200 hover:bg-transparent",
                 theme == "nord"
                   ? "border-black bg-black text-white  hover:text-black"
                   : "border-white bg-white text-black  hover:text-white"
               )}
             >
-              <BsApple className="size-8" />
-              <span className="texts ml-4 flex flex-col items-start">
-                <span className="text-1 mb-1 text-xs leading-4">
-                  Download form
-                </span>
-                <span className="text-2 font-semibold">App store</span>
-              </span>
-            </a>
+              <div className="mr-3">
+              <BsApple className="size-7"/>
+              </div>
+              <div>
+                <div className="text-xs capitalize">download from</div>
+                <div className="-mt-1 font-sans text-xl font-semibold capitalize">
+                  Apple Store
+                </div>
+              </div>
+            </button>
           </div>
         </div>
       </section>

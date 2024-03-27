@@ -2,7 +2,7 @@ import { BiSupport } from "react-icons/bi";
 import { IoShieldCheckmarkOutline } from "react-icons/io5";
 import { TbTruckDelivery } from "react-icons/tb";
 import { twMerge } from "tailwind-merge";
-import { useAppSelector } from "../../hooks/redux";
+import { useAppSelector } from "../../../hooks/redux";
 
 const DeliveryBanner = () => {
   const { theme } = useAppSelector((state) => state.general);

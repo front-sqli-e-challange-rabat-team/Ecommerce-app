@@ -1,12 +1,7 @@
-import React, { useEffect, useState } from "react";
-import SectionHeader from "./section-header";
+import { useEffect, useState } from "react";
+import SectionHeader from "../Common/section-header";
+import { Countdown } from "../../../types/Countdown";
 
-interface Countdown {
-  days: number;
-  hours: number;
-  minutes: number;
-  seconds: number;
-}
 
 const calculateTimeLeft = (endDate: Date): Countdown => {
   const difference = +endDate - +new Date();
@@ -53,7 +48,7 @@ const FlashSalesHeader: React.FC = () => {
           <h2 className="text-4xl font-bold mt-7">Flash Sales</h2>
           <div className="flex items-center mt-2 space-x-4">
             {Object.entries(timeLeft).map(([interval, value], index, array) => {
-              const isLast = index === array.length - 1; // Check if it's the last item in the array
+              const isLast = index === array.length - 1;
               return (
                 <div
                   key={interval}
@@ -77,12 +72,6 @@ const FlashSalesHeader: React.FC = () => {
             })}
           </div>
         </div>
-        {/* <div className="flex items-center">
-          <button className="text-red-600 mr-2 hover:text-red-700">
-          </button>
-          <button className="text-red-600 hover:text-red-700">
-          </button>
-        </div> */}
       </div>
     </div>
   );

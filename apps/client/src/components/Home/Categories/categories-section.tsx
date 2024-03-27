@@ -1,5 +1,5 @@
 import CategoriesCarousel from "./categories-carousel";
-import SectionHeader from "./section-header";
+import SectionHeader from "../Common/section-header";
 
 const CategoriesSection = () => {
   return (

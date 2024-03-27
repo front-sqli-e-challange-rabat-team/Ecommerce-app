@@ -1,5 +1,3 @@
-import React from 'react';
-
 const SectionHeader: React.FC<{ title: string }> = ({ title }) => {
     return (
         <div className="flex items-center z-20">

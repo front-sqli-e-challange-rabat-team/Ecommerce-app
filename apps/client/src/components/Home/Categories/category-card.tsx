@@ -1,10 +1,4 @@
-import React from 'react';
-import { IconType } from 'react-icons'; // This imports the type for icons
-
-interface CategoryCardProps {
-  label: string;
-  Icon: IconType; // Use the IconType for the icon component
-}
+import { CategoryCardProps } from '../../../types/CategoryCardProps'
 
 const CategoryCard: React.FC<CategoryCardProps> = ({ label, Icon }) => {
   return (

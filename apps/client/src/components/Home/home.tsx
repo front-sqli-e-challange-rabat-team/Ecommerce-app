@@ -1,19 +1,16 @@
-import { FaApple } from "react-icons/fa";
-import { FaArrowRightLong } from "react-icons/fa6";
-import CategoriesSection from "./categories-section";
-import FlashSalesSection from "./flash-sales-section";
-import BestSellersSecion from "./best-sellers-section";
-import Banner from "./banner";
-import ProductsExplore from "./poducts-explore-section";
-import NewArrivalSection from "./new-arrival-section";
-import TopSection from "./top-section";
-import DeliveryBanner from "./delivery-banner";
-import BannerSection from "./banner-section";
+import CategoriesSection from "./Categories/categories-section";
+import FlashSalesSection from "./FlashSales/flash-sales-section";
+import BestSellersSecion from "./BestSellers/best-sellers-section";
+import ProductsExplore from "./ProductsExplore/poducts-explore-section";
+import NewArrivalSection from "./NewArrivalSection/new-arrival-section";
+import DeliveryBanner from "./Banners/delivery-banner";
+import BannerSection from "./Banners/banner-section";
+import TopSection from "./TopSection/TopSection";
 
 const Home = () => {
   return (
     <div className="divide-y divide-slate-300">
-      <div className="">
+      <div className="div">
         <TopSection />
         <FlashSalesSection />
       </div>
