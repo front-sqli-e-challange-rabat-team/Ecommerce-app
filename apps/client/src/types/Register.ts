@@ -9,6 +9,8 @@ export interface Register{
     lastName?: string,
     email?:string,
     password?: string,
-    gender?: Gender
-  }
+    gender?: Gender,
+    emailVerified?: boolean
+  },
+  done: boolean
 }

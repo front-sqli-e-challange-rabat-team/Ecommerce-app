@@ -3,12 +3,17 @@ import { useAppSelector } from "../../hooks/redux";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 import { twMerge } from "tailwind-merge";
-import { Outlet, useLocation } from "react-router-dom";
+import { Outlet, useLocation, useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 
 const FullPageLayout= () => {
     const { theme } = useAppSelector((state) => state.general);
-    const currentPath = useLocation()
+    const currentPath = useLocation();
+    const navigate = useNavigate()
+    useEffect(()=>{
+      if(currentPath.pathname === "/") navigate("/home")
+    });
   return (
     <div 
       className={twMerge("w-full flex flex-col", ["/login","/register"].includes(currentPath.pathname)? "h-dvh max-h-dvh ": "")} 

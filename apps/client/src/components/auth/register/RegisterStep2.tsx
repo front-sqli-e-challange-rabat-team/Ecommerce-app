@@ -6,9 +6,8 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { AuthButton, btnTypes } from "@repo/ui";
 import { useAppDispatch } from "../../../hooks/redux";
-import { changeStep } from "../../../stores/register.slice";
+import { changeStep, setData } from "../../../stores/register.slice";
 import { ThemeState } from "../../../types/Theme";
-import { useEffect } from "react";
 
 type Props= {
   currentStep: number,
@@ -17,26 +16,32 @@ type Props= {
 
 const RegisterStep2 = ({currentStep ,theme}:Props) => {
   const dispatch = useAppDispatch()
-  const { registerSchemaStep2, Register } = useAuth();
+  const { registerSchemaStep2 } = useAuth();
   const methods = useForm<z.infer<typeof registerSchemaStep2>>({
     resolver: zodResolver(registerSchemaStep2),
   });
 
-  const createAccount = (data: z.infer<typeof registerSchemaStep2>) => {
-    Register(data);
+  const confirm = (data: z.infer<typeof registerSchemaStep2>) => {
+    console.log(data);
+    
+    dispatch(setData({
+      data:{
+        email: data?.email,
+        password:data?.password,
+      }
+    }))
+
+    currentStep<2 && dispatch(changeStep(currentStep+1))
   };
 
   const previous = () => {
     currentStep> 1 && dispatch(changeStep(currentStep-1))
   }
 
-  useEffect(()=>{console.log(methods.formState.errors);
-  },[methods.formState.errors])
-
   return (
     <FormProvider {...methods}>
       <form
-        onSubmit={methods.handleSubmit(createAccount)}
+        onSubmit={methods.handleSubmit(confirm)}
         className="flex flex-col gap-5"
       >
         <label className="form-control w-full flex flex_col justify-center items-center ">

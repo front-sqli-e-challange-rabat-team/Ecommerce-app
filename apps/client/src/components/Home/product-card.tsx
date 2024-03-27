@@ -1,4 +1,3 @@
-import React from "react";
 import StarRating from "./star-rating";
 import { Product } from "../../types/Product";
 import { twMerge } from "tailwind-merge";
