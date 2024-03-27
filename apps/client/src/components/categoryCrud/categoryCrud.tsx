@@ -105,7 +105,7 @@ const CategoryCrud: React.FC = () => {
     </tbody>
   </table>
   {showAddCategoryForm && (
-  <div className="relative overflow-x-auto shadow-md sm:rounded-lg mt-4 p-4 border border-gray-300 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100">
+  <div className="relative overflow-x-auto shadow-md sm:rounded-lg mt-4 p-4 border border-gray-300 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 w-full">
     <h3 className="text-lg font-semibold mb-2">Add Category</h3>
     <label className="block mb-2"> Name:
       <input type="text" name="name" value={newCategory.name} onChange={handleInputChange} className="form-input mt-1 block w-full text-gray-800" />
@@ -120,7 +120,7 @@ const CategoryCrud: React.FC = () => {
   </div>
 )}
 {showEditCategoryForm && categoryToEdit && (
-  <div className="relative overflow-x-auto shadow-md sm:rounded-lg mt-4 p-4 border border-gray-300 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100">
+  <div className="relative overflow-x-auto shadow-md sm:rounded-lg mt-4 p-4 border border-gray-300 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 w-full">
     <h3 className="text-lg font-semibold mb-2">Edit Category</h3>
     <label className="block mb-2"> Name:
       <input type="text" name="name" value={categoryToEdit.name} onChange={handleInputChange} className="form-input mt-1 block w-full text-gray-800" />

@@ -8,7 +8,9 @@ interface CategoryItem {
   description: string;
   price: number;
   stock: number;
-  pictures: string[]; 
+  pictures: string[];
+  colors: string[]; 
+  sizes: string[]; 
 }
 
 const CategoryItemsCrud: React.FC = () => {
@@ -22,6 +24,8 @@ const CategoryItemsCrud: React.FC = () => {
     price: 0,
     stock: 0,
     pictures: [],
+    colors: [],
+    sizes: [], 
   });
 
   const handleEditItem = (item: CategoryItem) => {
@@ -80,6 +84,12 @@ const CategoryItemsCrud: React.FC = () => {
           ...prevItem.pictures.slice(pictureIndex + 1)
         ]
       }));
+    } else if (name === "colors" || name === "sizes") {
+      const arrayValue = Array.isArray(value) ? value : [value];
+      setNewItem((prevItem) => ({
+        ...prevItem,
+        [name]: arrayValue,
+      }));
     } else {
       setNewItem((prevItem) => ({
         ...prevItem,
@@ -111,6 +121,8 @@ const CategoryItemsCrud: React.FC = () => {
             <th className="px-6 py-3"> Description </th>
             <th className="px-6 py-3"> Price </th>
             <th className="px-6 py-3"> Stock </th>
+            <th className="px-6 py-3"> Colors </th>
+            <th className="px-6 py-3"> Sizes </th>
             <th className="px-6 py-3"> Picture </th>
             <th className="px-6 py-3"> <span className="sr-only">Actions</span> </th>
           </tr>
@@ -123,6 +135,8 @@ const CategoryItemsCrud: React.FC = () => {
               <td className="px-6 py-4">{item.description}</td>
               <td className="px-6 py-4">{item.price}</td>
               <td className="px-6 py-4">{item.stock}</td>
+              <td className="px-6 py-4">{Array.isArray(item.colors) ? item.colors.join(", ") : item.colors}</td>
+              <td className="px-6 py-4">{Array.isArray(item.sizes) ? item.sizes.join(", ") : item.sizes}</td>
               <td className="px-6 py-4">
                 <img src={item.pictures[0]} alt={item.name} className="w-24 h-24" />
               </td>
@@ -131,18 +145,19 @@ const CategoryItemsCrud: React.FC = () => {
                 <button className="font-medium text-red-600 dark:text-red-500 hover:underline ml-2" onClick={() => handleDeleteItem(item.id)}>Delete</button>
               </td>
             </tr>
+            
           ))}
         </tbody>
       </table>
       
       {editItem && (
-        <CategoryItemForm title="Edit Item" formData={editItem} handleInputChange={handleInputChange} handleImageChange={handleImageChange}  handleSave={handleSaveEdit} handleCancel={handleCancelEdit} />
+        <CategoryItemForm title="Edit Item" formData={editItem} handleInputChange={handleInputChange} handleImageChange={handleImageChange} handleSave={handleSaveEdit} handleCancel={handleCancelEdit} />
       )}
       {showAddForm && (
         <CategoryItemForm title="Add New Item" formData={newItem} handleInputChange={handleAddFormChange} handleSave={handleSaveNewItem} handleCancel={() => setShowAddForm(false)} />
       )}
       <div className="mt-4">
-        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={handleAddItem} > Add Item </button>
+        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={handleAddItem}> Add Item </button>
       </div>
     </div>
   );

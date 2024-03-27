@@ -21,7 +21,7 @@ const ReusableForm: React.FC<FormProps> = ({
   handleCancel
 }) => {
   return (
-    <div className="mt-4 p-4 border border-gray-300 bg-white dark:bg-gray-800">
+    <div className="mt-4 p-4 border border-gray-300 bg-white dark:bg-gray-800 w-full">
       <h3 className="text-lg font-semibold mb-2 text-gray-900 dark:text-white">{title}</h3>
       <ReusableInput label="Name" name="name" value={formData.name} onChange={handleInputChange} />
       <ReusableInput label="Email" name="email" value={formData.email} onChange={handleInputChange} />
